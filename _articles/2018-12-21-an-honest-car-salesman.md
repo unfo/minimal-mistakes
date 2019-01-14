@@ -13,6 +13,7 @@ header:
 toc: true
 redirect_from: 
   - /latest/
+permalink: /articles/an-honest-car-salesman/
 ---
 
 <!-- <center><img src="/assets/honest-car.jpg" alt="Rusty car" width="100%" /></center> -->
