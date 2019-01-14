@@ -23,7 +23,7 @@ description              : "finding vulnerabilities in software and wetware"
 url                      : https://localhost.exposed # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : /assets/logo.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -82,7 +82,7 @@ naver_site_verification  :
 # Social Sharing
 twitter:
   username               : unfo
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : /assets/logo.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -105,16 +105,16 @@ analytics:
 
 # Site Author
 author:
-  name : Jan Wikholm
-  github  : unfo
-  twitter : unfo
-  keybase : unfo
-  email   : localhost@localhost.exposed
-  instagram : walontuoja
-  url: https://localhost.exposed/
-  avatar           : /assets/jw-summer.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Full spectrum cyber helper"
-  location         : "localhost"
+  name              : Jan Wikholm
+  github            : unfo
+  twitter           : unfo
+  keybase           : unfo
+  email             : localhost@localhost.exposed
+  instagram         : walontuoja
+  url               : http://beta.localhost.exposed/
+  avatar            : /assets/jw-summer.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio               : "Full spectrum cyber helper"
+  location          : "localhost"
 
 
 # Site Footer
@@ -129,14 +129,20 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/walontuoja"
-    - label: Sitemap
-      url: /sitemap
+    - label: "Articles feed"
+      icon: "fas fa-fw fa-rss-square"
+      url: "/feeds/articles.xml"
+    - label: "Curated links feed"
+      icon: "fas fa-fw fa-rss-square"
+      url: "/feeds/links.xml"
+
 
 
 # Reading Files
 include:
   - .htaccess
   - _pages
+  - _articles
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -222,16 +228,30 @@ whitelist:
   - jemoji
   - jekyll-include-cache
 
+
 collections:
   path_to_oscp:
+    label: Path to OSCP
     output: true
     permalink: /:year/:month/:day/:title/
   articles:
+    label: Articles, posts, and random musings
     output: true
-    permalink: /internal/:title/
+    permalink: /articles/:title/
   curated_links:
+    label: Curated links of interesting tech, cyber, gaming, and personal development resources
     output: true
-    permalink: /external/:title/
+    permalink: /links/:title/
+
+
+feed:
+  collections:
+    path_to_oscp:
+      path: "/feeds/path-to-oscp.xml"
+    articles:
+      path: "/feeds/articles.xml"
+    curated_links:
+      path: "/feeds/links.xml"
 
 # Archives
 #  Type
@@ -282,7 +302,7 @@ defaults:
       read_time: true
       comments: false
       share: true
-      related: true
+      related: false
       header:
         overlay_filter: 0.8
       toc: true
@@ -298,7 +318,7 @@ defaults:
       type: path_to_oscp
     values:
       layout: single
-      related: true
+      related: false
       author_profile: true
       share: true
   # articles
@@ -308,7 +328,11 @@ defaults:
     values:
       layout: single
       author_profile: true
+      read_time: true
       share: true
+      header:
+        overlay_color: grey
+        overlay_filter: 0.8
   # links
   - scope:
       path: ""

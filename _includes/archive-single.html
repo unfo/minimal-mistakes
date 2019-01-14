@@ -1,7 +1,7 @@
 {% if post.header.teaser %}
   {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
 {% else %}
-  {% assign teaser = site.teaser %}
+  {% assign teaser = false %}
 {% endif %}
 
 {% if post.id %}
@@ -11,8 +11,11 @@
 {% endif %}
 
 <div class="{{ include.type | default: "list" }}__item">
+  {% if page.entry_separator %}
+    <hr class="hr-{{ page.entry_separator }}" />
+  {% endif %}
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
+    {% if teaser %}
       <div class="archive__item-teaser">
         <img src=
           {% if teaser contains "://" %}
@@ -33,6 +36,6 @@
     {% if post.read_time %}
       <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.excerpt and page.show_excerpts %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
   </article>
 </div>

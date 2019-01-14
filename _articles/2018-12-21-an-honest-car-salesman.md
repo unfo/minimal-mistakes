@@ -2,16 +2,13 @@
 
 title: An honest car salesman
 date: 2018-12-21 11:31:00.000000000 +02:00
-type: post
 published: true
-status: publish
-categories:
-- Original content
-tags: []
+type: post
 excerpt: |-
   How to sum up succinctly the introspection, discussions, internal debates, and shifts in world view that has I've gone through in the past year.
 header:
   overlay_image: /assets/honest-car.jpg
+  teaser: /assets/teasers/honest-car.jpg
   overlay_filter: 0.8
 toc: true
 redirect_from: 

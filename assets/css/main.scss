@@ -7,5 +7,12 @@
 $masthead-link-font: monospace;
 .path-to-oscp { font-size: 85%; }
 
+
+hr.hr-knot { overflow: visible; /* For IE */ padding: 0; border: none; border-top: medium double #333; color: #333; text-align: center; } 
+hr.hr-knot:after { content: url('/assets/knot30.png'); display: inline-block; position: relative; top: -0.7em; font-size: 1.5em; padding: 0 0.25em; background: white; }
+a {
+	text-decoration-style: dotted;
+}
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials

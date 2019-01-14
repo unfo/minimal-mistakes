@@ -6,6 +6,10 @@ main:
     url: /about/
   - title: "/path-to-oscp"
     url: /path-to-oscp/
+  - title: "/articles"
+    url: /articles/
+  - title: "/links"
+    url: /links/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
