@@ -20,7 +20,7 @@ title                    : "localhost exposed"
 title_separator          : "-"
 name                     : "Jan Wikholm"
 description              : "finding vulnerabilities in software and wetware"
-url                      : https://localhost.exposed # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://beta.localhost.exposed # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : /assets/logo.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -111,7 +111,7 @@ author:
   keybase           : unfo
   email             : localhost@localhost.exposed
   instagram         : walontuoja
-  url               : http://beta.localhost.exposed/
+  url               : https://beta.localhost.exposed/
   avatar            : /assets/jw-summer.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio               : "Full spectrum cyber helper"
   location          : "localhost"
