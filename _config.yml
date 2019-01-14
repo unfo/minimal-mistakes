@@ -228,10 +228,10 @@ collections:
     permalink: /:year/:month/:day/:title/
   articles:
     output: true
-    permalink: /just-words/:title/
+    permalink: /internal/:title/
   curated_links:
     output: true
-    permalink: /curated-links/:year-:title/
+    permalink: /external/:title/
 
 # Archives
 #  Type
