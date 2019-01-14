@@ -4,5 +4,8 @@
 
 @charset "utf-8";
 
+$masthead-link-font: monospace;
+.path-to-oscp { font-size: 85%; }
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
