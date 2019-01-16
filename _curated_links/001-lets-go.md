@@ -1,16 +1,35 @@
 ---
 title: Episode 001 - Let's get the ball rolling
+date: 2019-01-16 10:44:07 +01:00
+published: true
 layout: single
-excerpt: Using fonts to evade defences. NotPetya an act of war? Certs expiring due to gov't shutdown. And more.
+excerpt: scp broken. Using fonts to evade defences. NotPetya an act of war? Certs expiring due to gov't shutdown. And more.
 toc: true
 ---
 
+<pre>2019-01-16</pre>
 
 This is my first bundle of curated links. 
 
 This is new for me, as I am used to sending these out to an internal mailing list of like-minded techies.
 
 So let's see how this goes...
+
+<hr class="hr-knot" />
+
+## Multiple vulns affecting `scp` found and disclosed by F-Secure fellow hax0r Harry Sintonen
+
+Harry is a great guy and an excellent vuln researcher, so I'll just [quote him directly](https://sintonen.fi/advisories/scp-client-multiple-vulnerabilities.txt) (emphasis mine):
+
+> Many scp clients fail to verify if the objects returned by the scp server match those it asked for. This issue **dates back to 1983** and rcp, on which scp is based.
+
+> Malicious scp server can write arbitrary files to scp target directory, change the target directory permissions and to spoof the client output.
+
+Some of the found issues are design problems that can't or *won't* be fixed. 
+
+Best to switch to `sftp` and `rsync` and avoid `scp`.
+
+<hr class="hr-knot" />
 
 
 ## Using webfonts as a substitute cipher
@@ -85,6 +104,12 @@ I'm not going to dwell on the actual shutdown but rather, what can we perhaps le
 This goes for all y'all out there. Get your certs in the middle of quarters or fiscal years!
 
 <hr class="hr-knot" />
+
+## Intel releases fix for vuln that could enable privilege escalation
+
+[The Register reports about Intel patching an issue with SGX](https://www.theregister.co.uk/2019/01/14/intel_patches_sgx_flaw/) (Software Guard Extensions) where the software in charge of managing the hardware security feature is broken.
+
+As this is effectively a new way to escalate privileges, I would offer this to all EDR/MDR providers and red teams as a juicy target.
 
 <center>EOF</center>
 
