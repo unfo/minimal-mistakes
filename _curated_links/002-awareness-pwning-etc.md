@@ -1,6 +1,6 @@
 ---
 title: Episode 002 - Awareness, pwning and other tomfoolery
-date: 2019-01-21 13:41:07 +02:00
+date: 2019-01-21 23:30:07 +02:00
 published: true
 layout: single
 excerpt: Firmware flaw in widely used wifi, Mitre-mapping, and a very common flaw found in keyboard software
@@ -57,6 +57,18 @@ One fun thing you can do on your own system at home is to run [PowerSploit/Power
 Source: [SpecterOps](https://posts.specterops.io/razer-synapse-3-elevation-of-privilege-6d2802bd0585)
 
 <hr class="hr-knot" />
+
+## [Bypassing endpoint detection products](https://medium.com/@fsx30/bypass-edrs-memory-protection-introduction-to-hooking-2efb21acffd6)
+
+So what do you when you get those higher privileges then? Well you want to grab creds from memory and continue pivoting/lateral movement.
+
+To get those creds you most commonly read `lsass.exe`'s memory and get either clear text or hashed creds. That obviously makes it a prime thing for EDR products to keep an eye on. User `@fsx30` on Medium has a good article on how you might go about sneaking around any limitations those EDR products might be putting on you.
+
+*"If you're admin, why not just turn EDR off?!"*
+
+Well... I cannot say this hasn't worked on real gigs, but in most cases shutting down the EDR product itself when the host is still alive is a fairly severe indicator of compromise for the blue team. EDR products in general cause enough events that it is easy enough to figure it out from the lack of noise or other ways of monitoring host state.
+
+Source: [Medium/@fsx30](https://medium.com/@fsx30/bypass-edrs-memory-protection-introduction-to-hooking-2efb21acffd6)
 
 <center>EOF</center>
 
