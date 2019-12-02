@@ -119,9 +119,6 @@ footer:
     - label: "Articles feed"
       icon: "fas fa-fw fa-rss-square"
       url: "/feeds/articles.xml"
-    - label: "Curated links feed"
-      icon: "fas fa-fw fa-rss-square"
-      url: "/feeds/links.xml"
 
 
 
@@ -225,10 +222,6 @@ collections:
     label: Articles, posts, and random musings
     output: true
     permalink: /articles/:title/
-  curated_links:
-    label: Curated links of interesting tech, cyber, gaming, and personal development resources
-    output: true
-    permalink: /links/:title/
 
 
 feed:
@@ -237,8 +230,6 @@ feed:
       path: "/feeds/path-to-oscp.xml"
     articles:
       path: "/feeds/articles.xml"
-    curated_links:
-      path: "/feeds/links.xml"
 
 # Archives
 #  Type
@@ -320,11 +311,3 @@ defaults:
       header:
         overlay_color: grey
         overlay_filter: 0.8
-  # links
-  - scope:
-      path: ""
-      type: curated_links
-    values:
-      layout: single
-      author_profile: true
-      share: true      
